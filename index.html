@@ -1,349 +1,484 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio</title>
+    <meta name="description" content="Landing page de Michael Andrew, desenvolvedor focado em sistemas web sob medida com Python, Django e integrações inteligentes.">
+    <title>Michael Andrew | Desenvolvedor Web</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+    <link rel="shortcut icon" href="favicon.svg?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slatebrand: "#0f172a",
+                        ink: "#e2e8f0",
+                        accent: "#f97316",
+                        accentSoft: "#fdba74",
+                        panel: "#111827",
+                        panelSoft: "#1f2937"
+                    },
+                    boxShadow: {
+                        glow: "0 30px 80px rgba(249, 115, 22, 0.18)"
+                    }
+                }
+            }
+        };
+    </script>
     <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/412e60f1e0.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-        <menu>
-            <ul>
-                <li><a class="menu_link" href="#ficha" title="Início"><i class="fa-solid fa-home"></i></a></li>
-                <li><a class="menu_link" href="#skills-container" title="Skills"><i class="fa-solid fa-brain"></i></a></li>
-                <li><a class="menu_link" href="#formacao" title="Formação"><i class="fa-solid fa-graduation-cap"></i></a></li>
-                <li><a class="menu_link" href="#projetos" title="Projetos"><i class="fa-solid fa-trowel-bricks"></i></a></li>
-                <li><a id="tema" class="menu_link" href="#" title="Alterar Tema"><i class="fa-solid fa-moon"></i></a></li>
+<body class="theme-body bg-slatebrand text-ink antialiased">
+    <div class="page-noise"></div>
+
+    <header class="theme-header sticky top-0 z-50 border-b border-white/10 bg-slatebrand/80 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+            <a href="#inicio" class="text-lg font-extrabold tracking-tight text-white">Michael Andrew</a>
+
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="theme-icon-button inline-flex items-center justify-center rounded-full border border-white/10 p-3 text-white" aria-label="Alternar tema">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25M12 18.75V21M4.72 4.72l1.59 1.59M17.69 17.69l1.59 1.59M3 12h2.25M18.75 12H21M4.72 19.28l1.59-1.59M17.69 6.31l1.59-1.59M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3c-.05.25-.08.52-.08.79A9 9 0 0 0 21 12.79Z" />
+                    </svg>
+                </button>
+
+                <button id="menu-toggle" class="theme-icon-button inline-flex items-center justify-center rounded-full border border-white/10 p-3 text-white md:hidden" aria-label="Abrir menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <nav id="site-nav" class="hidden md:block">
+                    <ul class="flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <li><a class="nav-link rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white" href="#servicos">Serviços</a></li>
+                    <li><a class="nav-link rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white" href="#projetos">Projetos</a></li>
+                    <li><a class="nav-link rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white" href="#sobre">Sobre</a></li>
+                    <li><a class="nav-link rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white" href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <nav id="mobile-nav" class="mx-6 mb-4 hidden rounded-3xl border border-white/10 bg-white/5 p-4 md:hidden">
+            <ul class="flex flex-col gap-2 text-sm font-medium text-slate-200">
+                <li><a class="nav-link block rounded-2xl px-4 py-3 transition hover:bg-white/5" href="#servicos">Serviços</a></li>
+                <li><a class="nav-link block rounded-2xl px-4 py-3 transition hover:bg-white/5" href="#projetos">Projetos</a></li>
+                <li><a class="nav-link block rounded-2xl px-4 py-3 transition hover:bg-white/5" href="#sobre">Sobre</a></li>
+                <li><a class="nav-link block rounded-2xl px-4 py-3 transition hover:bg-white/5" href="#contato">Contato</a></li>
             </ul>
-        </menu>
+        </nav>
     </header>
+
     <main>
-        <section id="ficha">
-            <img src="image/portifolio1.jpg" alt="foto portifolio">
-            <h1>Michael Andrew Henrique Faustino</h1>
-            <p>Desenvolvedor em formação, movido pela curiosidade e pela vontade de aprender. Tenho experiência prática com Django e já desenvolvi projetos como um sistema de agendamentos, um controle de equipamentos e um CRM personalizado para a Obox.</p>
-            <p>Estou em busca da minha primeira oportunidade profissional para crescer na área de tecnologia e contribuir com soluções criativas e eficientes. Gosto de transformar ideias em código que faz diferença.</p>
-            <div id="social">
-                <a href="https://www.linkedin.com/in/michael-andrew-henrique-faustino-2123bb143/" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/Miichaaeell" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <section id="inicio" class="reveal relative overflow-hidden">
+            <div class="hero-grid mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+                <div class="reveal relative z-10">
+                    <span class="mb-6 inline-flex rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accentSoft">
+                        Desenvolvedor back-end com foco em APIs, automações e sistemas sob medida
+                    </span>
+                    <h1 class="max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+                        Estruturo back-end, APIs e regras de negócio para sistemas que resolvem problemas reais.
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                        Meu foco principal está no back-end: modelagem de dados, regras de negócio, integrações, automações e APIs com Python e Django. Quando o projeto exige, também entrego a aplicação completa, conectando essa base a interfaces objetivas e prontas para uso no dia a dia.
+                    </p>
+
+                    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+                        <a href="#contato" class="cta-primary inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-bold text-slatebrand transition hover:-translate-y-0.5">
+                            Solicitar orçamento
+                        </a>
+                        <a href="#projetos" class="interactive-card inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-bold text-white transition">
+                            Ver projetos
+                        </a>
+                    </div>
+
+                    <div class="mt-12 grid gap-4 sm:grid-cols-3">
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-white/5 p-5">
+                            <p class="text-3xl font-extrabold text-white">3+</p>
+                            <p class="mt-2 text-sm text-slate-300">Sistemas aplicados a cenários reais de negócio</p>
+                        </div>
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-white/5 p-5">
+                            <p class="text-3xl font-extrabold text-white">Python + Django</p>
+                            <p class="mt-2 text-sm text-slate-300">Base principal para back-end, APIs, gestão e automações</p>
+                        </div>
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-white/5 p-5">
+                            <p class="text-3xl font-extrabold text-white">Entrega objetiva</p>
+                            <p class="mt-2 text-sm text-slate-300">Foco em clareza de uso, operação e manutenção</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal relative z-10">
+                    <div class="absolute -left-8 top-10 h-32 w-32 rounded-full bg-accent/30 blur-3xl"></div>
+                    <div class="absolute -right-8 bottom-10 h-40 w-40 rounded-full bg-sky-400/20 blur-3xl"></div>
+
+                    <div class="theme-hero-card interactive-card tilt-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-5 shadow-glow">
+                        <div class="mb-4 flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Perfil</p>
+                                <h2 class="mt-2 text-2xl font-bold text-white">Michael Andrew Henrique Faustino</h2>
+                            </div>
+                            <span class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+                                Disponível para freelas
+                            </span>
+                        </div>
+
+                        <div class="grid gap-6 lg:grid-cols-[180px_1fr]">
+                            <img src="image/portifolio1.jpg" alt="Foto de Michael Andrew" class="profile-photo h-52 w-full rounded-[1.5rem] object-cover object-center lg:object-top">
+                            <div class="space-y-4 text-sm leading-7 text-slate-300">
+                                <p>
+                                    Desenvolvedor em formação com experiência prática na construção de CRMs, sistemas de agendamento e controle operacional.
+                                </p>
+                                <p>
+                                    Trabalho com Python, Django, PostgreSQL, Celery, Docker, Tailwind e integrações para criar produtos digitais mais organizados, escaláveis e úteis para o cliente.
+                                </p>
+                                <div class="grid gap-3 pt-2">
+                                    <a href="mailto:michael@michaelandrew.com.br" class="contact-chip interactive-card group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10">
+                                        <span class="contact-chip-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.793a1.5 1.5 0 0 1-1.664 0L2.25 7.5" />
+                                            </svg>
+                                        </span>
+                                        <span class="contact-chip-text">michael@michaelandrew.com.br</span>
+                                    </a>
+                                    <a href="https://wa.me/5519999894514" target="_blank" rel="noreferrer" class="contact-chip interactive-card group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10">
+                                        <span class="contact-chip-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2a9.95 9.95 0 0 0-8.6 14.96L2 22l5.2-1.36A9.97 9.97 0 0 0 12.02 22h.01a9.98 9.98 0 0 0 7.02-17.09Zm-7.02 15.4h-.01a8.27 8.27 0 0 1-4.2-1.14l-.3-.18-3.08.8.82-3-.2-.31a8.27 8.27 0 1 1 6.97 3.83Zm4.53-6.18c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.12-.17.25-.65.8-.8.96-.15.17-.29.19-.54.07-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.38-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.07-.13-.57-1.37-.78-1.88-.21-.5-.43-.43-.57-.44h-.49c-.17 0-.45.06-.69.32s-.9.88-.9 2.14c0 1.26.92 2.48 1.05 2.65.13.17 1.8 2.76 4.36 3.87.61.26 1.08.42 1.45.53.61.2 1.17.17 1.61.11.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.1-.23-.16-.48-.29Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="contact-chip-text">WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                            <a href="https://www.linkedin.com/in/michael-andrew-henrique-faustino-2123bb143/" target="_blank" rel="noreferrer" class="contact-chip interactive-card group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                <span class="contact-chip-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94s.8 1.93 1.88 1.93h.02c1.13 0 1.92-.87 1.92-1.93ZM20.44 13.11c0-3.53-1.88-5.17-4.38-5.17-2.02 0-2.92 1.12-3.42 1.9V8.5H9.25c.04.89 0 11.5 0 11.5h3.39v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.04 1.88 2.56V20H20v-6.89c0-.01 0-.01 0 0h.44Z" />
+                                    </svg>
+                                </span>
+                                <span class="contact-chip-text">LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/Miichaaeell" target="_blank" rel="noreferrer" class="contact-chip interactive-card group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                <span class="contact-chip-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.17-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.69.08-.69 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.52-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.03 0 0 .97-.31 3.17 1.18a10.95 10.95 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.57.23 2.74.11 3.03.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.35.78 1.03.78 2.08 0 1.5-.01 2.7-.01 3.07 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                                    </svg>
+                                </span>
+                                <span class="contact-chip-text">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section id="detalhes">
-            <article id="skills-container">
-                <h2><i class="fa-solid fa-brain"></i> Minhas Skills</h2>
-                <div id="skill">
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-python"></i> Python
-                        </span>
-                        <span class="porcent">
-                            70%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 70%;"></div>
-                       </div>
+
+        <section class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+            <div class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">O que eu entrego</p>
+                        <h2 class="mt-3 text-3xl font-extrabold text-white">Back-end forte, com entrega completa quando o projeto pede.</h2>
                     </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-code"></i> Django
-                        </span>
-                        <span class="porcent">
-                            70%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 70%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-html5"></i> HTML5
-                        </span>
-                        <span class="porcent">
-                            50%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 50%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-css3-alt"></i> CSS3
-                        </span>
-                        <span class="porcent">
-                            50%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 50%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                           <i class="fa-brands fa-js"></i> JavaScript
-                        </span>
-                        <span class="porcent">
-                            30%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 30%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-microchip"></i> Inteligência Artificial
-                        </span>
-                        <span class="porcent">
-                            30%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 30%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-docker"></i> Docker e Docker Compose
-                        </span>
-                        <span class="porcent">
-                            50%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 50%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-git-alt"></i> Git e GitHub
-                        </span>
-                        <span class="porcent">
-                            60%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 60%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-brands fa-linux"></i> Linux
-                        </span>
-                        <span class="porcent">
-                            70%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 70%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-comments"></i> Comunicação
-                        </span>
-                        <span class="porcent">
-                            90%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 90%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-people-group"></i> Trabalho em Equipe
-                        </span>
-                        <span class="porcent">
-                            100%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 100%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-user-gear"></i> Proativo
-                        </span>
-                        <span class="porcent">
-                            100%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 100%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-user-secret"></i> Curiosidade
-                        </span>
-                        <span class="porcent">
-                            100%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 100%;"></div>
-                       </div>
-                    </div>
-                    <div class="skills">
-                       <div class="info">
-                        <span class="name">
-                            <i class="fa-solid fa-medal"></i> Aprendizagem
-                        </span>
-                        <span class="porcent">
-                            100%
-                        </span>
-                       </div>
-                       <div class="barra">
-                        <div class="progress" style="width: 100%;"></div>
-                       </div>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                            <h3 class="text-lg font-bold text-white">Back-end e regras de negócio</h3>
+                            <p class="mt-2 text-sm leading-7 text-slate-300">Modelagem, autenticação, permissões, fluxos operacionais e estrutura confiável para o sistema funcionar bem.</p>
+                        </div>
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                            <h3 class="text-lg font-bold text-white">APIs, integrações e automação</h3>
+                            <p class="mt-2 text-sm leading-7 text-slate-300">Conexão entre serviços, rotinas automatizadas, notificações e processos que reduzem tarefas repetitivas.</p>
+                        </div>
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                            <h3 class="text-lg font-bold text-white">Sistemas completos</h3>
+                            <p class="mt-2 text-sm leading-7 text-slate-300">Quando necessário, entrego a solução ponta a ponta, conectando o back-end a uma interface clara e pronta para operação.</p>
+                        </div>
+                        <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                            <h3 class="text-lg font-bold text-white">Projetos sob medida</h3>
+                            <p class="mt-2 text-sm leading-7 text-slate-300">Estrutura pensada para a necessidade real do negócio, sem excesso de complexidade e com foco em uso real.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-            </article>
-            <article id="formacao">
-                <h2><i class="fa-solid fa-graduation-cap"></i>  Formação</h2>
-                 <div >
-                    <div class="curso">
-                        <p class="periodo">2025</p>
-                        <h3 class="instituicao">Pycodebr</h3>
-                        <p class="titulacao">Django Master</p>
+        <section id="servicos" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Serviços</p>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Desenvolvimento orientado a resolver gargalos com base técnica forte no back-end.</h2>
+                <p class="mt-4 text-lg leading-8 text-slate-300">
+                    Se você precisa estruturar regras de negócio, APIs, automações ou um sistema completo para operação, atendimento ou gestão, eu posso desenhar e implementar a solução com foco prático.
+                </p>
+            </div>
+
+            <div class="mt-12 grid gap-6 lg:grid-cols-3">
+                <article class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                    <span class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">01</span>
+                    <h3 class="mt-4 text-2xl font-bold text-white">Back-end e arquitetura de sistemas</h3>
+                    <p class="mt-4 text-sm leading-7 text-slate-300">Estruturação de regras de negócio, autenticação, modelagem de dados, permissões e base técnica para sistemas confiáveis.</p>
+                </article>
+                <article class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                    <span class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">02</span>
+                    <h3 class="mt-4 text-2xl font-bold text-white">APIs, integrações e automações</h3>
+                    <p class="mt-4 text-sm leading-7 text-slate-300">Comunicação entre serviços, rotinas automatizadas e recursos para reduzir trabalho manual e conectar operação.</p>
+                </article>
+                <article class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                    <span class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">03</span>
+                    <h3 class="mt-4 text-2xl font-bold text-white">Sistemas completos sob medida</h3>
+                    <p class="mt-4 text-sm leading-7 text-slate-300">CRMs, controles internos, dashboards e plataformas completas quando o projeto pede entrega ponta a ponta.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-6 py-4 lg:px-8">
+            <div class="reveal theme-banner interactive-card tilt-card rounded-[2rem] border border-white/10 bg-gradient-to-r from-accent/15 via-white/[0.04] to-sky-400/10 p-8 lg:p-10">
+                <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Como eu trabalho</p>
+                        <h2 class="mt-3 text-3xl font-extrabold text-white">Diagnóstico, construção e entrega com foco prático.</h2>
                     </div>
-                    <div class="curso">
-                        <p class="periodo">2025</p>
-                        <h3 class="instituicao">Pycodebr</h3>
-                        <p class="titulacao">IA Master</p>
+                    <a href="#contato" class="cta-secondary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition">
+                        Falar sobre projeto
+                    </a>
+                </div>
+                <div class="mt-8 grid gap-4 md:grid-cols-3">
+                    <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                        <p class="text-sm font-bold text-accentSoft">Etapa 1</p>
+                        <p class="mt-2 text-lg font-bold text-white">Entendimento do problema</p>
+                        <p class="mt-2 text-sm leading-7 text-slate-300">Mapeamento do que hoje gera atraso, ruído ou retrabalho.</p>
                     </div>
-                    <div class="curso">
-                        <p class="periodo">2025</p>
-                        <h3 class="instituicao">Pycodebr</h3>
-                        <p class="titulacao">Integration Master</p>
+                    <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                        <p class="text-sm font-bold text-accentSoft">Etapa 2</p>
+                        <p class="mt-2 text-lg font-bold text-white">Construção orientada a uso</p>
+                        <p class="mt-2 text-sm leading-7 text-slate-300">Interface objetiva, regras claras e tecnologia adequada ao cenário.</p>
                     </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">Modulo I II II de Python</p>
-                    </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">HTML5 & CSS3 Modulos I ao IV</p>
-                    </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">JavaScript</p>
-                    </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">Redes e Computadores</p>
-                    </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">Git e GitHub</p>
-                    </div>
-                    <div class="curso">
-                        <p class="periodo">2024</p>
-                        <h3 class="instituicao">Curso em Video</h3>
-                        <p class="titulacao">Linux</p>
+                    <div class="interactive-card rounded-3xl border border-white/10 bg-black/10 p-5">
+                        <p class="text-sm font-bold text-accentSoft">Etapa 3</p>
+                        <p class="mt-2 text-lg font-bold text-white">Validação e evolução</p>
+                        <p class="mt-2 text-sm leading-7 text-slate-300">Ajustes finos para manter o sistema útil e sustentável no dia a dia.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-            </article>
-            <article id="projetos">
-                <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>
-                 <div class="projeto">
-                    <img src="image/Obox.png" alt="Imagem do projeto" title="Obox CRM">
-                    <div class="projeto-info">
-                        <p class="periodo">2025</p>
-                        <h3 class="titulo">Obox CRM</h3>
-                        <p class="resumo">Projeto de um sistema personalizado para um box de Cross Training. Esse sistema foi pensado para atender às necessidades reais do cliente e sanar suas dores de forma rápida, objetiva e de fácil entendimento. </p>
-                        <details class="descricao">
-                            <summary>Saiba mais...</summary>
-                            <p>Stack de desenvolvimento: Python, Django, Celery, Rabbitmq, Postgres, alpine.js, tailwindcss</p>
-                            <p>Funcionaliades: Criação de mensalidades automáticas, cadastro de contas, fluxo de caixa, cadastro e histórico de alunos, emissão de NFS e muito mais.</p>
-                        </details>
+        <section id="projetos" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+            <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Projetos</p>
+                    <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Trabalhos que mostram como transformo necessidade em produto.</h2>
+                </div>
+            </div>
+
+            <div class="mt-12 grid gap-8">
+                <article class="reveal interactive-card tilt-card grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] lg:grid-cols-[320px_1fr]">
+                    <img src="image/Obox.png" alt="Tela do projeto Obox CRM" class="h-full w-full object-cover">
+                    <div class="p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-accentSoft">2025</p>
+                        <h3 class="mt-3 text-2xl font-bold text-white">Obox CRM</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Sistema desenvolvido para um cliente real, com foco em back-end, regras de negócio e automações para centralizar gestão, financeiro e relacionamento com alunos em uma operação única.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
+                            <span class="rounded-full border border-white/10 px-3 py-1">Python</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Django</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Celery</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">RabbitMQ</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">PostgreSQL</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Alpine.js</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Tailwind CSS</span>
+                        </div>
+                        <p class="mt-5 text-sm leading-7 text-slate-300">
+                            Destaques: mensalidades automáticas, fluxo financeiro, histórico de alunos, emissão de NFS e processos estruturados para reduzir trabalho manual no dia a dia.
+                        </p>
+                        <a href="https://github.com/Miichaaeell/Obox_CRM" target="_blank" rel="noreferrer" class="interactive-card mt-6 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                            Ver projeto
+                        </a>
                     </div>
-               </div>
-               <div class="projeto">
-                    <img src="image/controle_de_estoque.jpeg" alt="Imagem do projeto" title="Controle de estoque">
-                    <div class="projeto-info">
-                        <p class="periodo">2025</p>
-                        <h3 class="titulo">Controle de estoque</h3>
-                        <p class="resumo">Solução desenvolvida pensando na praticidade do dia a dia para acompanhamento e movimentação de equipamentos</p>
-                        <details class="descricao">
-                            <summary>Saiba mais...</summary>
-                            <p>Stack utilizada: Python, Django, Postgres, tailwindcss, Alpine.js, Charjs</p>
-                            <p>Funcionalidades: <strong>Controle:</strong> Cadastrar marcas, modelos e equipamentos. <strong>Rastreabilidade:</strong> Toda movimentação fica registrada. <strong>Dashboard:</strong> Para uma visão macro dos equipamentos</p>
-                        </details>
+                </article>
+
+                <article class="reveal interactive-card tilt-card grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] lg:grid-cols-[320px_1fr]">
+                    <img src="image/controle_de_estoque.jpeg" alt="Tela do projeto Controle de Estoque" class="h-full w-full object-cover">
+                    <div class="p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-accentSoft">2025</p>
+                        <h3 class="mt-3 text-2xl font-bold text-white">Controle de Estoque</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Projeto com foco em modelagem de dados, rastreabilidade e consistência operacional para controlar equipamentos, movimentações e leitura gerencial do estoque.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
+                            <span class="rounded-full border border-white/10 px-3 py-1">Python</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Django</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">PostgreSQL</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Tailwind CSS</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Alpine.js</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Chart.js</span>
+                        </div>
+                        <p class="mt-5 text-sm leading-7 text-slate-300">
+                            Destaques: cadastro estruturado de marcas, modelos e equipamentos, histórico completo de movimentação e dashboard para visão operacional.
+                        </p>
+                        <a href="https://github.com/Miichaaeell/controle_de_equipamento" target="_blank" rel="noreferrer" class="interactive-card mt-6 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                            Ver projeto
+                        </a>
                     </div>
-               </div>
-               <div class="projeto">
-                    <img src="image/SGA.jpeg" alt="Imagem do projeto" title="Gestão de Agendamentos">
-                    <div class="projeto-info">
-                        <p class="periodo">2025</p>
-                        <h3 class="titulo">Gestão de Agendamentos</h3>
-                        <p class="resumo">Sistema desenvolvido pensando em automatizar o processo de agendamento e ganhar tempo tanto para o profissional, quanto para o cliente com praticidade e efiência.</p>
-                        <details class="descricao">
-                            <summary>Saiba mais...</summary>
-                            <p>Stack utilizada: Python, Django, Postgres, Celery, API IA Gemini, Bootstrap, Charjs</p>
-                            <p>Funcionaliades: <strong>Controle:</strong> Cria os horários de atendimento, serviços com tempo de duração, preço e foto
-                            <strong>Praticidade:</strong> Selecione o serviço, data e o horário disponível e pronto! Agendamento realizado com sucesso!
-                            <strong>Autonômia:</strong> IA para responder duvidas no whatsapp enquanto o profissional foca em realizar o serviço.
-                            </p>
-                        </details>
+                </article>
+
+                <article class="reveal interactive-card tilt-card grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] lg:grid-cols-[320px_1fr]">
+                    <img src="image/SGA.jpeg" alt="Tela do projeto Gestão de Agendamentos" class="h-full w-full object-cover">
+                    <div class="p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-accentSoft">2025</p>
+                        <h3 class="mt-3 text-2xl font-bold text-white">Gestão de Agendamentos</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Projeto pessoal completo que demonstra minha capacidade de estruturar back-end, integrações e automações em um sistema real de agendamentos, atendimento e operação.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
+                            <span class="rounded-full border border-white/10 px-3 py-1">Python</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Django</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">PostgreSQL</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Celery</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Gemini API</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Bootstrap</span>
+                            <span class="rounded-full border border-white/10 px-3 py-1">Chart.js</span>
+                        </div>
+                        <p class="mt-5 text-sm leading-7 text-slate-300">
+                            Destaques: gestão de horários, catálogo de serviços, agenda do cliente, rotinas automatizadas e apoio com IA integrado ao WhatsApp.
+                        </p>
+                        <a href="https://gestaodeagendamento.com" target="_blank" rel="noreferrer" class="interactive-card mt-6 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                            Ver projeto online
+                        </a>
                     </div>
-               </div>
-               <div class="projeto">
-                    <img src="image/projeto_login.png" alt="Imagem do projeto" title="Projeto Login">
-                    <div class="projeto-info">
-                        <p class="periodo">2024</p>
-                        <h3 class="titulo">Projeto Login</h3>
-                        <p class="resumo">Projeto construído no <a href="https://www.cursoemvideo.com/" target="_blank">Curso em video</a> para treinar responsividade e formulários em uma das telas mais populares em sistemas.</p>
-                        <details class="descricao">
-                            <summary>Saiba mais...</summary>
-                            <p>Criar uma tela de login é algo muito comum na vida de quem vai construir sites. Mas essa tela de login deve conter componentes bonitos e com funcionalidades bem definidas e intuitivas de usar. Essa tela de login vai adaptando seus conteúdos usando caixas flexíveis (flexbox) para funcionar em qualquer tamanho de tela.</p>
-                        </details>
+                </article>
+
+                <article class="reveal interactive-card tilt-card grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] lg:grid-cols-[320px_1fr]">
+                    <img src="image/projeto_login.png" alt="Tela do Projeto Login" class="h-full w-full object-cover">
+                    <div class="p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-accentSoft">2024</p>
+                        <h3 class="mt-3 text-2xl font-bold text-white">Projeto Login</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Projeto de estudo com foco em responsividade, formulários e construção de uma interface de autenticação adaptável a diferentes telas.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/Miichaaeell/Projeto-Login" target="_blank" rel="noreferrer" class="interactive-card inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                                Repositório
+                            </a>
+                            <a href="https://miichaaeell.github.io/Projeto-Login/" target="_blank" rel="noreferrer" class="interactive-card inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                                Ver online
+                            </a>
+                        </div>
                     </div>
-               </div>
-               <div class="projeto">
-                    <img src="image/projetocordel.png" alt="Imagem do projeto" title="Projeto Cordel">
-                    <div class="projeto-info">
-                        <p class="periodo">2024</p>
-                        <h3 class="titulo">Projeto Cordel</h3>
-                        <p class="resumo">Projeto construído no <a href="https://www.cursoemvideo.com/" target="_blank">Curso em video</a> para treinar efeito parallax em imagens e a apresentaçao de conteúdo em diversos tamanhos de tela.</p>
-                        <details class="descricao">
-                            <summary>Saiba mais...</summary>
-                            <p>Apresentar um conteúdo na tela de forma criativa é sempre um desafio aos desenvolvedores de sites. Nesse projeto, apresentamos um cordel de maneira bem-humorada, responsiva e usando técnicas como parallax para exibição de imagens de fundo.</p>
-                        </details>
+                </article>
+
+                <article class="reveal interactive-card tilt-card grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] lg:grid-cols-[320px_1fr]">
+                    <img src="image/projetocordel.png" alt="Tela do Projeto Cordel" class="h-full w-full object-cover">
+                    <div class="p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-accentSoft">2024</p>
+                        <h3 class="mt-3 text-2xl font-bold text-white">Projeto Cordel</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Projeto de estudo para trabalhar apresentação visual, efeito parallax e leitura agradável em múltiplos tamanhos de tela.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/Miichaaeell/Projeto-Cordel-Moderno" target="_blank" rel="noreferrer" class="interactive-card inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                                Repositório
+                            </a>
+                            <a href="https://miichaaeell.github.io/Projeto-Cordel-Moderno/" target="_blank" rel="noreferrer" class="interactive-card inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition">
+                                Ver online
+                            </a>
+                        </div>
                     </div>
-               </div>
-              
-            </article>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+            <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+                <div class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Sobre mim</p>
+                    <h2 class="mt-3 text-3xl font-extrabold text-white">Base técnica em evolução contínua e aplicação prática.</h2>
+                    <p class="mt-5 text-base leading-8 text-slate-300">
+                        Sou movido por curiosidade, aprendizado e pela construção de soluções úteis. Já desenvolvi projetos com foco em gestão, automação e usabilidade, e venho consolidando minha experiência em Python, Django, Docker, Git, Linux e recursos de IA.
+                    </p>
+                    <p class="mt-4 text-base leading-8 text-slate-300">
+                        Minha prioridade é entender o contexto do cliente e transformar isso em um produto objetivo, confiável e com boa capacidade de evolução.
+                    </p>
+                </div>
+
+                <div class="reveal interactive-card tilt-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Stack e formação</p>
+                    <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-white">
+                        <span class="rounded-full border border-white/10 px-4 py-2">Python</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">Django</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">HTML</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">CSS</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">JavaScript</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">Docker</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">Git e GitHub</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">Linux</span>
+                        <span class="rounded-full border border-white/10 px-4 py-2">IA</span>
+                    </div>
+                    <div class="mt-8 space-y-4 text-sm leading-7 text-slate-300">
+                        <p><span class="font-bold text-white">2025</span> · Django Master, IA Master e Integration Master pela Pycodebr.</p>
+                        <p><span class="font-bold text-white">2024</span> · Formação prática com Curso em Vídeo em Python, HTML, CSS, JavaScript, redes, GitHub e Linux.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="mx-auto max-w-7xl px-6 py-8 pb-20 lg:px-8">
+            <div class="reveal interactive-card tilt-card overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04]">
+                <div class="grid gap-0 lg:grid-cols-[1fr_0.9fr]">
+                    <div class="p-8 lg:p-12">
+                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-accentSoft">Contato</p>
+                        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Se você quer tirar uma ideia do papel ou organizar um processo com software, vamos conversar.</h2>
+                        <p class="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+                            Atendo projetos de páginas de apresentação, sistemas web e soluções sob medida. O primeiro passo é entender seu cenário e definir o que faz sentido construir.
+                        </p>
+                    </div>
+                    <div class="contact-panel p-8 lg:p-12">
+                        <div class="grid gap-4">
+                            <a href="mailto:michael@michaelandrew.com.br" class="theme-contact-card interactive-card block rounded-3xl border border-white/10 bg-slatebrand/50 p-5 transition hover:bg-slatebrand/70">
+                                <div class="flex items-start gap-4">
+                                    <span class="contact-chip-icon mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.793a1.5 1.5 0 0 1-1.664 0L2.25 7.5" />
+                                        </svg>
+                                    </span>
+                                    <div class="min-w-0">
+                                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">E-mail</p>
+                                        <p class="mt-2 break-all text-lg font-bold text-white">michael@michaelandrew.com.br</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/5519999894514" target="_blank" rel="noreferrer" class="theme-contact-card interactive-card block rounded-3xl border border-white/10 bg-slatebrand/50 p-5 transition hover:bg-slatebrand/70">
+                                <div class="flex items-start gap-4">
+                                    <span class="contact-chip-icon mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2a9.95 9.95 0 0 0-8.6 14.96L2 22l5.2-1.36A9.97 9.97 0 0 0 12.02 22h.01a9.98 9.98 0 0 0 7.02-17.09Zm-7.02 15.4h-.01a8.27 8.27 0 0 1-4.2-1.14l-.3-.18-3.08.8.82-3-.2-.31a8.27 8.27 0 1 1 6.97 3.83Zm4.53-6.18c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.12-.17.25-.65.8-.8.96-.15.17-.29.19-.54.07-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.38-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.07-.13-.57-1.37-.78-1.88-.21-.5-.43-.43-.57-.44h-.49c-.17 0-.45.06-.69.32s-.9.88-.9 2.14c0 1.26.92 2.48 1.05 2.65.13.17 1.8 2.76 4.36 3.87.61.26 1.08.42 1.45.53.61.2 1.17.17 1.61.11.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.1-.23-.16-.48-.29Z" />
+                                        </svg>
+                                    </span>
+                                    <div class="min-w-0">
+                                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">WhatsApp</p>
+                                        <p class="mt-2 text-lg font-bold text-white">Clique para iniciar a conversa</p>
+                                        <p class="mt-2 text-sm leading-7 text-slate-300">Atendimento direto para conversar sobre orçamento e escopo.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <h4>Portifólio desenvolvido por Michael Andrew em 2025</h4>
+
+    <footer class="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-400">
+        Michael Andrew · Portfólio e landing page de serviços · 2026
     </footer>
 
     <script src="index.js"></script>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Favicon Michael Andrew">
+  <rect width="64" height="64" rx="16" fill="#0f172a"/>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <path fill="#fff7ed" d="M17 46V18h6.3L32 32.7 40.7 18H47v28h-5.4V28.1l-8.8 14h-1.6l-8.8-14V46Z"/>
+</svg>
