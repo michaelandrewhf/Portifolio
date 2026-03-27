@@ -49,6 +49,9 @@ O projeto não possui etapa de build nem dependências locais: a página roda di
     ├── Obox.png
     ├── SGA.jpeg
     ├── controle_de_estoque.jpeg
+    ├── dashboard.png
+    ├── mafia_dogs.png
+    ├── planeta_acai.png
     ├── portifolio1.jpg
     ├── projeto_login.png
     └── projetocordel.png
@@ -83,12 +86,12 @@ http://localhost:8000
 - Obox CRM
 - Controle de Estoque
 - Gestão de Agendamentos
-- Projeto Login
-- Projeto Cordel
+- Planeta d'Açaí
+- Máfia Dog's
 
 ## Contato
 
 - E-mail: [michael@michaelandrew.com.br](mailto:michael@michaelandrew.com.br)
 - WhatsApp: [Iniciar conversa](https://wa.me/5519999894514)
 - LinkedIn: [Michael Andrew](https://www.linkedin.com/in/michael-andrew-henrique-faustino-2123bb143/)
-- GitHub: [Miichaaeell](https://github.com/Miichaaeell)
+- GitHub: [Michael Andrew](https://github.com/michaelandrewhf)
